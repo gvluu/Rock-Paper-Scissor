@@ -1,5 +1,5 @@
 const options = ["rock", "paper", "scissors"];
-
+// Get computer to return random 'rock', 'paper', or 'scissor
 function getComputerChoice() {
     const computerChoice = options[Math.floor(Math.random() * options.length)];
     // to generate random integer between 0 & length of options
@@ -14,14 +14,14 @@ function getComputerChoice() {
       }  */
     console.log(computerChoice)
     return computerChoice; 
-    // NOTE: Return = OUTCOME. Console.log = OUTPUT (for debugging)
-    // NEED THIS RETURN STATEMENT! It was missing the whole time. That's why I kept only getting ELSE response. 
-    // Prior, it was only logging a random response to the console but it did not return a value. Now it can be used in 'computerSelection' under 'playRound'.
+    /* NOTE: Return = OUTCOME. Console.log = OUTPUT (for debugging)
+    NEED THIS RETURN STATEMENT! It was missing the whole time. That's why I kept only getting ELSE response. 
+    Prior, it was only logging a random response to the console but it did not return a value. Now it can be used in 'computerSelection' under 'playRound'. */
 }
 
+// Create function that plays single round of RPS
 function playRound(playerSelection, computerSelection) {
-    // case-insensitive so ANY variation of rock, paper, or scissors will be recognized.
-    playerSelection = playerSelection.toLowerCase()
+    
     let tie = "It's a tie! You selected " + playerSelection + " and the computer chose " + computerSelection + "!"
     let rockLosePaper = "You Lose! You selected " + playerSelection + " and the computer chose " + computerSelection + "!"
     let rockBeatScissors = "You Win! You selected " + playerSelection + " and the computer chose " + computerSelection + "!"
@@ -49,8 +49,45 @@ function playRound(playerSelection, computerSelection) {
     return("Invalid selection! Please choose rock, paper, or scissors.")
     }
 }                                                        
-  const playerSelection = "rock";
-  const computerSelection = getComputerChoice();
-  console.log(playerSelection);
-  console.log(playRound(playerSelection, computerSelection));
 
+
+
+// Allow player 5 rounds w/ score at end. Note: i could also start at 1
+function game() {
+  let playerScore = 0;
+  let computerScore = 0;
+  let round = 1;
+  for (let i = 0; i < 5; i++) {
+      let playerSelection;
+      while (!playerSelection) {
+        playerSelection = prompt(`Round ${round}: Choose Rock, Paper, or Scissors`).toLowerCase();
+        if (playerSelection !== 'rock' && playerSelection !== 'paper' && playerSelection !== 'scissors') {
+          alert('Invalid choice. Please choose Rock, Paper, or Scissors.');
+          playerSelection = null;
+        }
+      }
+  
+    const computerSelection = getComputerChoice();
+    const result = playRound(playerSelection, computerSelection);
+
+    console.log(`Round ${round}: ${result}`);
+
+    if (result.startsWith('You Win')) {
+      playerScore++;
+    } else if (result.startsWith('You Lose')) {
+      computerScore++;
+    }
+    
+    round++;
+  }
+
+  if (playerScore > computerScore) {
+    console.log(`You win! Final score: ${playerScore}-${computerScore}`);
+  } else if (playerScore < computerScore) {
+    console.log(`You lose! Final score: ${playerScore}-${computerScore}`);
+  } else {
+    console.log(`It's a tie! Final score: ${playerScore}-${computerScore}`);
+  }
+}
+
+game();
