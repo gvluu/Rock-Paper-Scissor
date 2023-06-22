@@ -27,7 +27,7 @@ body {
   }
   
   #results {
-    display: none;
+    display: flexbox;
     margin-top: 20px;
   }
   
@@ -37,5 +37,5 @@ body {
   }
   
   #reset {
-    display: none;
+    display: flexbox;
   }
