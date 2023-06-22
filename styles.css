@@ -27,8 +27,10 @@ body {
   }
   
   #results {
-    display: flexbox;
+    display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
     margin-top: 20px;
   }
   
@@ -38,6 +40,6 @@ body {
   }
   
   #reset {
-    display: flexbox;
+    display: flex;
     justify-content: center;
   }
