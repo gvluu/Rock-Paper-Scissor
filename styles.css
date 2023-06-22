@@ -1,0 +1,41 @@
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
+  
+  h1 {
+    margin-top: 50px;
+  }
+  
+  #game-container {
+    margin-top: 50px;
+  }
+  
+  #scoreboard {
+    margin-bottom: 20px;
+  }
+  
+  #buttons-container {
+    margin-bottom: 20px;
+  }
+  
+  .btn {
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  #results {
+    display: none;
+    margin-top: 20px;
+  }
+  
+  #results p {
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+  
+  #reset {
+    display: none;
+  }
